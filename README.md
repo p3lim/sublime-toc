@@ -1,8 +1,9 @@
 # TOC
 
-This plugin will add syntax highlighting to [World of Warcraft TOC files](https://wowpedia.fandom.com/wiki/TOC_format).
+This plugin will add syntax highlighting to [World of Warcraft TOC files](https://wowpedia.fandom.com/wiki/TOC_format), plus some handy completions.
 
-Modernized alternative to [AndrielChaoti/wowtoc-syntax](https://github.com/AndrielChaoti/wowtoc-syntax) (which is now archived), updated to the latest version of the file format and using the .sublime-syntax format.
+Modernized alternative to [AndrielChaoti/wowtoc-syntax](https://github.com/AndrielChaoti/wowtoc-syntax) (which is now archived),  
+updated to the latest version of the file format and using the .sublime-syntax format.
 
 ## Installation
 
