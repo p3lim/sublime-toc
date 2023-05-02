@@ -1,0 +1,64 @@
+%YAML 1.2
+---
+# https://www.sublimetext.com/docs/syntax.html
+# https://wowpedia.fandom.com/wiki/TOC_format
+name: TOC
+file_extensions:
+  - toc
+scope: source.toc
+
+variables:
+  # https://wowpedia.fandom.com/wiki/Localization
+  locale: (deDE|enCN|enGB|enTW|enUS|esES|esMX|frFR|itIT|koKR|ptBR|ptPT|ruRU|zhCN|zhTW)
+
+contexts:
+  main:
+    # start of field boundary
+    - match: '^##'
+      push:
+        # scope boundary
+        - meta_scope: keyword.tag.toc
+
+        # interface version
+        - match: (?i)\b(interface)\b:\s?(\d+)$
+          captures:
+            1: constant.language.tag.toc
+            2: constant.numeric.toc
+
+        # invalid interface version
+        - match: (?i)\b(interface)\b:\s?.+\b
+          scope: invalid.illegal.toc
+
+        # end of field boundary
+        - match: (:|\Z)
+          pop: true
+
+        # informational with optional localization
+        - match: (?i)\b(title|notes|description)(-{{locale}})?\b
+          scope: constant.language.tag.toc
+
+        # listing
+        - match: (?i)\b(author|version|icontexture|iconatlas)\b
+          scope: constant.language.tag.toc
+
+        # addon compartment
+        - match: (?i)\b(addoncompartmentfunc(onenter|onleave)?)\b
+          scope: constant.language.tag.toc
+
+        # loading conditions
+        - match: (?i)\b(loadondemand|dependencies|optionaldeps|loadwith|loadmanagers|defaultstate)\b
+          scope: constant.language.tag.toc
+
+        # saved variables
+        - match: (?i)\b(savedvariables|savedvariablespercharacter)\b
+          scope: constant.language.tag.toc
+
+        # custom metadata
+        - match: '\b[Xx]-([^:]+)\b'
+          scope: constant.language.tag.toc
+          captures:
+            1: string.toc
+
+    # comments
+    - match: '^#[^#]+$'
+      scope: comment.source.toc
