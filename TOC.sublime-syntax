@@ -1,56 +1,80 @@
 %YAML 1.2
 ---
 # https://www.sublimetext.com/docs/syntax.html
-# https://wowpedia.fandom.com/wiki/TOC_format
+# https://warcraft.wiki.gg/wiki/TOC_format
 name: TOC
 file_extensions:
   - toc
 scope: source.toc
 
 variables:
-  # https://wowpedia.fandom.com/wiki/Localization
-  locale: (deDE|enCN|enGB|enTW|enUS|esES|esMX|frFR|itIT|koKR|ptBR|ptPT|ruRU|zhCN|zhTW)
+  # https://warcraft.wiki.gg/wiki/Localization
+  locale: (?:deDE|enCN|enGB|enTW|enUS|esES|esMX|frFR|itIT|koKR|ptBR|ptPT|ruRU|zhCN|zhTW)
+  # https://github.com/BigWigsMods/packager/blob/master/README.md#single-toc-file
+  flavors: (?:Vanilla|Classic|TBC|BCC|Wrath|WOTLKC|Cata)
 
 contexts:
   main:
+    # invalid (unfinished line)
+    - match: '^##\s?$'
+      scope: invalid.tag.known.toc
+
     # start of field boundary
-    - match: '^##'
+    - match: '^#{2}\s'
       push:
         # scope boundary
         - meta_scope: keyword.tag.toc
 
         # interface version
-        - match: (?i)\b(interface)\b:\s?(\d+)$
+        # sadly regex can't capture unknown amounts of repeating groups, so this looks a bit nasty
+        - match: (?i)\binterface\b:\s?(\d+)\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?$
+          scope: constant.language.tag.toc
           captures:
-            1: constant.language.tag.toc
+            1: constant.numeric.toc
             2: constant.numeric.toc
+            3: constant.numeric.toc
+            4: constant.numeric.toc
+            5: constant.numeric.toc
+            6: constant.numeric.toc
+            7: constant.numeric.toc
+            8: constant.numeric.toc
+            9: constant.numeric.toc
 
-        # invalid interface version
-        - match: (?i)\b(interface)\b:\s?.+\b
-          scope: invalid.illegal.toc
+        # interface version with flavor suffix
+        - match: (?i)\binterface-({{flavors}})\b:\s?(\d+)$
+          scope: constant.language.tag.toc
+          captures:
+            1: string.toc
+            2: constant.numeric.toc
 
         # end of field boundary
         - match: (:|\Z)
           pop: true
 
         # informational with optional localization
-        - match: (?i)\b(title|notes|description)(-{{locale}})?\b
+        - match: (?i)\b(?:title|notes)(?:-({{locale}}))?\b
           scope: constant.language.tag.toc
+          captures:
+            1: string.toc
 
-        # listing
-        - match: (?i)\b(author|version|icontexture|iconatlas)\b
+        # informational
+        - match: (?i)\b(?:author|version|icontexture|iconatlas)\b
           scope: constant.language.tag.toc
 
         # addon compartment
-        - match: (?i)\b(addoncompartmentfunc(onenter|onleave)?)\b
+        - match: (?i)\b(?:addoncompartmentfunc(onenter|onleave)?)\b
           scope: constant.language.tag.toc
 
         # loading conditions
-        - match: (?i)\b(loadondemand|dependencies|optionaldeps|loadwith|loadmanagers|defaultstate)\b
+        - match: (?i)\b(?:loadondemand|dependencies|optionaldeps|loadwith|loadmanagers|defaultstate)\b
           scope: constant.language.tag.toc
 
         # saved variables
-        - match: (?i)\b(savedvariables|savedvariablespercharacter)\b
+        - match: (?i)\b(?:savedvariables|savedvariablespercharacter)\b
+          scope: constant.language.tag.toc
+
+        # restricted (unusable by addons)
+        - match: (?i)\b(?:allowload|allowloadgametype|loadfirst|onlybetaandptr|savedvariablesmachine|secure|suppresslocaltableref)\b
           scope: constant.language.tag.toc
 
         # custom metadata
@@ -59,6 +83,10 @@ contexts:
           captures:
             1: string.toc
 
-    # comments
-    - match: '^#[^#]+$'
+        # highlight invalid tags as errors
+        - match: '\b\S[^:]+\b'
+          scope: invalid.tag.known.toc
+
+    # comments (any line that starts with # not already matched)
+    - match: '^#(?!#(?!#)).*$'
       scope: comment.source.toc
