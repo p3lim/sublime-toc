@@ -3,102 +3,107 @@
 	"completions": [
 		{
 			"trigger": "interface",
-			"contents": "Interface: ",
+			"contents": "## Interface: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "title",
-			"contents": "Title: ",
+			"contents": "## Title: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "notes",
-			"contents": "Notes: ",
+			"contents": "## Notes: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "description",
-			"contents": "Description: ",
+			"contents": "## Description: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "author",
-			"contents": "Author: ",
+			"contents": "## Author: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "version",
-			"contents": "Version: ",
+			"contents": "## Version: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "icontexture",
-			"contents": "IconTexture: ${1:Interface\\\\Icons\\\\}",
+			"contents": "## IconTexture: ${1:Interface\\\\Icons\\\\}",
 			"annotation": "file path",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "iconatlas",
-			"contents": "IconAtlas: ",
+			"contents": "## IconAtlas: ",
 			"annotation": "texture atlas name",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "addoncompartmentfunc",
-			"contents": "AddonCompartmentFunc: ",
+			"contents": "## AddonCompartmentFunc: ",
 			"annotation": "global function name",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "addoncompartmentfunconenter",
-			"contents": "AddonCompartmentFuncOnEnter: ",
+			"contents": "## AddonCompartmentFuncOnEnter: ",
 			"annotation": "global function name",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "addoncompartmentfunconleave",
-			"contents": "AddonCompartmentFuncOnLeave: ",
+			"contents": "## AddonCompartmentFuncOnLeave: ",
 			"annotation": "global function name",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "loadondemand",
-			"contents": "LoadOnDemand: ${1:1}",
+			"contents": "## LoadOnDemand: ${1:1}",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "dependencies",
-			"contents": "Dependencies: ",
+			"contents": "## Dependencies: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "optionaldeps",
-			"contents": "OptionalDeps: ",
+			"contents": "## OptionalDeps: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "loadwith",
-			"contents": "LoadWith: ",
+			"contents": "## LoadWith: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "loadmanagers",
-			"contents": "LoadManagers: ",
+			"contents": "## LoadManagers: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "defaultstate",
-			"contents": "DefaultState: ${1:disabled}",
+			"contents": "## DefaultState: ${1:disabled}",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "savedvariables",
-			"contents": "Savedvariables: ",
+			"contents": "## Savedvariables: ",
 			"kind": "keyword"
 		},
 		{
 			"trigger": "savedvariablespercharacter",
-			"contents": "SavedvariablesPerCharacter: ",
+			"contents": "## SavedvariablesPerCharacter: ",
+			"kind": "keyword"
+		},
+		{
+			"trigger": "x",
+			"contents": "## X-",
 			"kind": "keyword"
 		}
 	]
