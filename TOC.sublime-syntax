@@ -74,7 +74,7 @@ contexts:
           scope: constant.language.tag.toc
 
         # restricted (unusable by addons)
-        - match: (?i)\b(?:allowload|allowloadgametype|loadfirst|onlybetaandptr|savedvariablesmachine|secure|suppresslocaltableref)\b
+        - match: (?i)\b(?:allowload|allowloadgametype|loadfirst|onlybetaandptr|savedvariablesmachine|secure|usesecureenvironment)\b
           scope: constant.language.tag.toc
 
         # custom metadata
