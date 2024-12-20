@@ -102,6 +102,11 @@
 			"kind": "keyword"
 		},
 		{
+			"trigger": "allowloadgametype",
+			"contents": "## AllowLoadGameType: ",
+			"kind": "keyword"
+		},
+		{
 			"trigger": "x",
 			"contents": "## X-",
 			"kind": "keyword"
