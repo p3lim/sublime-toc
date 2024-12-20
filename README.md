@@ -15,7 +15,7 @@ using the [`.sublime-syntax`](https://www.sublimetext.com/docs/syntax.html) form
 1. Install the [Sublime Text Package Control](https://packagecontrol.io/installation) plugin if you haven't already.
     - _Preferences_ > _Package Control_
 2. Open up the command palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and enter `Package Control: Install Package`
-3. Search for `TOC` and hit <kbd>Enter</kbd> to install.
+3. Search for `warcraft toc` and hit <kbd>Enter</kbd> to install.
 
 ##### Manual installation with Git
 
