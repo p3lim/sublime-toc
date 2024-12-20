@@ -58,7 +58,7 @@ contexts:
             1: string.toc
 
         # informational
-        - match: (?i)\b(?:author|version|icontexture|iconatlas)\b
+        - match: (?i)\b(?:author|version|icontexture|iconatlas|category)\b
           scope: constant.language.tag.toc
 
         # addon compartment
