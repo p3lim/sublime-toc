@@ -49,6 +49,11 @@
 			"kind": "keyword"
 		},
 		{
+			"trigger": "group",
+			"contents": "## Group: ",
+			"kind": "keyword"
+		},
+		{
 			"trigger": "addoncompartmentfunc",
 			"contents": "## AddonCompartmentFunc: ",
 			"annotation": "global function name",
