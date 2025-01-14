@@ -11,7 +11,7 @@ variables:
   # https://warcraft.wiki.gg/wiki/Localization
   locale: (?:deDE|enCN|enGB|enTW|enUS|esES|esMX|frFR|itIT|koKR|ptBR|ptPT|ruRU|zhCN|zhTW)
   # https://github.com/BigWigsMods/packager/blob/master/README.md#single-toc-file
-  flavors: (?:Vanilla|Classic|TBC|BCC|Wrath|WOTLKC|Cata)
+  flavors: (?:Mainline|Classic|Vanilla|TBC|BCC|Wrath|WOTLKC|Cata)
 
 contexts:
   main:
