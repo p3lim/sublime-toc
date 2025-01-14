@@ -52,13 +52,13 @@ contexts:
           pop: true
 
         # informational with optional localization
-        - match: (?i)\b(?:title|notes)(?:-({{locale}}))?\b
+        - match: (?i)\b(?:title|notes|category)(?:-({{locale}}))?\b
           scope: constant.language.tag.toc
           captures:
             1: string.toc
 
         # informational
-        - match: (?i)\b(?:author|version|icontexture|iconatlas|category)\b
+        - match: (?i)\b(?:author|version|icontexture|iconatlas)\b
           scope: constant.language.tag.toc
 
         # addon compartment
