@@ -86,7 +86,7 @@ contexts:
           pop: true
 
         # informational with optional localization
-        - match: (?i)\b(?:title|notes|category)(?:-({{locale}}))?\b
+        - match: (?i)\b(?:title|notes|category)(?:(-{{locale}}))?\b
           scope: constant.language.tag.toc
           captures:
             1: string.toc
