@@ -100,7 +100,7 @@ contexts:
           scope: constant.language.tag.toc
 
         # loading conditions
-        - match: (?i)\b(?:loadondemand|dependencies|optionaldeps|loadwith|loadmanagers|defaultstate)\b
+        - match: (?i)\b(?:loadondemand|dependencies|requireddeps|optionaldeps|loadwith|loadmanagers|defaultstate)\b
           scope: constant.language.tag.toc
 
         # saved variables
