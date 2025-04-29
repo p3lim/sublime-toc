@@ -10,8 +10,9 @@ scope: source.toc
 variables:
   # https://warcraft.wiki.gg/wiki/Localization
   locale: (?:deDE|enCN|enGB|enTW|enUS|esES|esMX|frFR|itIT|koKR|ptBR|ptPT|ruRU|zhCN|zhTW)
+  # https://warcraft.wiki.gg/wiki/TOC_format#Client-specific_TOC_files
   # https://github.com/BigWigsMods/packager/blob/master/README.md#single-toc-file
-  flavors: (?:Mainline|Classic|Vanilla|TBC|BCC|Wrath|WOTLKC|Cata)
+  flavors: (?:Mainline|Classic|Vanilla|TBC|Wrath|Cata|Mists|Standard)
 
 contexts:
   main:
