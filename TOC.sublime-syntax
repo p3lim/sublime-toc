@@ -27,26 +27,33 @@ contexts:
         - meta_scope: keyword.tag.toc
 
         # interface version
-        # sadly regex can't capture unknown amounts of repeating groups, so this looks a bit nasty
-        - match: (?i)\binterface\b:\s?(\d+)\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?\s*,?\s*(\d+)?$
-          scope: constant.language.tag.toc
-          captures:
-            1: constant.numeric.toc
-            2: constant.numeric.toc
-            3: constant.numeric.toc
-            4: constant.numeric.toc
-            5: constant.numeric.toc
-            6: constant.numeric.toc
-            7: constant.numeric.toc
-            8: constant.numeric.toc
-            9: constant.numeric.toc
+        - match: (?i)\binterface\b
+          push:
+            # scope boundary
+            - meta_scope: constant.language.tag.toc
 
-        # interface version with flavor suffix
-        - match: (?i)\binterface-({{flavors}})\b:\s?(\d+)$
-          scope: constant.language.tag.toc
-          captures:
-            1: string.toc
-            2: constant.numeric.toc
+            # end of field boundary
+            - match: '$'
+              pop: true
+
+            # match flavor
+            - match: \b-({{flavors}})\b
+              scope: string.toc
+
+            # match delimiter scope with boundary
+            - match: :\s?
+              scope: keyword.tag.toc
+
+            # match values
+            - match: (\d+)
+              scope: constant.numeric.toc
+
+            # avoid showing error on separators
+            - match: \b,\s?\b
+
+            # # highlight invalid types
+            - match: \w+
+              scope: invalid.tag.known.toc
 
         # end of field boundary
         - match: (:|\Z)
