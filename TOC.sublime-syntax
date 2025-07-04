@@ -126,7 +126,7 @@ contexts:
       scope: comment.source.toc
 
     # variables
-    - match: '^(\[(?:Family|Game)\])'
+    - match: '(\[(?:Family|Game|TextLocale)\])'
       scope: constant.language.tag.toc
 
     - match: '\[AllowLoadGameType'
@@ -140,6 +140,26 @@ contexts:
 
         # match types
         - match: \b{{load_types}}\b
+          scope: string.toc
+
+        # avoid showing error on separators
+        - match: \b,\s?\b
+
+        # highlight invalid types
+        - match: \w+
+          scope: invalid.tag.known.toc
+
+    - match: '\[AllowLoadTextLocale'
+      push:
+        # scope boundary
+        - meta_scope: constant.language.tag.toc
+
+        # end of field boundary
+        - match: '\]$'
+          pop: true
+
+        # match types
+        - match: \b{{locale}}\b
           scope: string.toc
 
         # avoid showing error on separators
