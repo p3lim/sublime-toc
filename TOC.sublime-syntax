@@ -125,8 +125,10 @@ contexts:
     - match: '^#(?!#(?!#)).*$'
       scope: comment.source.toc
 
-    # variables
+    # variables/directives
     - match: '(\[(?:Family|Game|TextLocale)\])'
+      scope: constant.language.tag.toc
+    - match: '[ \t]+(\[(?:Bootstrap)\])$'
       scope: constant.language.tag.toc
 
     - match: '\[AllowLoadGameType'
