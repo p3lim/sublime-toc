@@ -9,9 +9,6 @@ using the [`.sublime-syntax`](https://www.sublimetext.com/docs/syntax.html) form
 
 ##### Using the package manager
 
-> **Warning**
-> This isn't possible yet, awaiting submission to package control
-
 1. Install the [Sublime Text Package Control](https://packagecontrol.io/installation) plugin if you haven't already.
     - _Preferences_ > _Package Control_
 2. Open up the command palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and enter `Package Control: Install Package`
